@@ -1,0 +1,102 @@
+.swipeable-card {
+    position: relative;
+    width: 90vw;
+    max-width: 300px;
+    /* Adjust max-width as needed */
+    height: 400px;
+    /* Adjust height as needed */
+    margin: 0 auto;
+    transition: transform 0.3s ease-out;
+}
+
+.card {
+    position: absolute;
+    background-color: #ffffff;
+    /* Myntra-like white */
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-content {
+    width: 100%;
+    height: 100%;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 5px;
+    color: #ffffff;
+    /* Myntra-like white */
+    position: relative;
+}
+
+.card h3 {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.left-button,
+.right-button {
+    position: absolute;
+    bottom: 20px;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    /* Myntra-like white */
+}
+
+.left-button {
+    left: 20px;
+    background-color: #e72744;
+    /* Myntra-like red */
+}
+
+.right-button {
+    right: 20px;
+    background-color: #f13ab1;
+    /* Myntra-like pink */
+}
+
+.left-button:hover,
+.right-button:hover {
+    opacity: 0.8;
+}
+
+.left-button:active,
+.right-button:active {
+    transform: translateY(1px);
+}
+
+.swipeable-card.left {
+    animation: swipeLeft 0.3s forwards;
+}
+
+.swipeable-card.right {
+    animation: swipeRight 0.3s forwards;
+}
+
+@keyframes swipeLeft {
+    100% {
+        transform: translateX(-100vw) rotate(-20deg);
+    }
+}
+
+@keyframes swipeRight {
+    100% {
+        transform: translateX(100vw) rotate(20deg);
+    }
+}

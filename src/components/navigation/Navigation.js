@@ -51,7 +51,7 @@ const Navigation = (props) => {
               onClick={() => { props.history.push('/men') }}
               sx={{ my: 2, color: 'black', marginLeft: '30px', display: 'block', fontSize: '20px', paddingLeft: '10px', paddingRight: '10px' }}
             >
-            MEN
+              MEN
             </Button>
 
             <Button
@@ -70,6 +70,15 @@ const Navigation = (props) => {
             >
               HOME & LIVING
             </Button>
+
+            <Button
+              onClick={() => { props.history.push('/swipe-right') }}
+              sx={{ my: 2, color: 'black', display: 'block', fontSize: '20px', paddingLeft: '10px', paddingRight: '10px' }}
+            >
+              SWIPE-RIGHT
+            </Button>
+
+
 
             {/* <Button
               onClick={handleCloseNavMenu}
