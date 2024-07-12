@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import './swipe-card.css';
 
-const SwipeableCard = ({ character, onSwiped }) => {
+const SwipeableCard = ({ character, onSwiped, index, currentIndex }) => {
     const [swipeDirection, setSwipeDirection] = useState('');
 
     const handlers = useSwipeable({
@@ -18,8 +18,14 @@ const SwipeableCard = ({ character, onSwiped }) => {
         trackMouse: true,
     });
 
+    useEffect(() => {
+        if (index === currentIndex) {
+            setSwipeDirection('');
+        }
+    }, [currentIndex, index]);
+
     return (
-        <div className={`swipeable-card ${swipeDirection}`}>
+        <div className={`swipeable-card ${swipeDirection}`} style={{ zIndex: index === currentIndex ? 1 : 0 }}>
             <div className="card" {...handlers}>
                 <div className="card-content">
                     <div
@@ -29,26 +35,6 @@ const SwipeableCard = ({ character, onSwiped }) => {
                         <h3>{character.name}</h3>
                     </div>
                 </div>
-            </div>
-            <div className="swipe-buttons">
-                <button
-                    className="left-button"
-                    onClick={() => {
-                        setSwipeDirection('left');
-                        onSwiped('left', character.name);
-                    }}
-                >
-                    Left
-                </button>
-                <button
-                    className="right-button"
-                    onClick={() => {
-                        setSwipeDirection('right');
-                        onSwiped('right', character.name);
-                    }}
-                >
-                    Right
-                </button>
             </div>
         </div>
     );

@@ -12,7 +12,7 @@ import HomeAndLiving from './components/homeAndLiving/HomeAndLiving';
 import LogIn from './components/login/LogIn';
 import WishList from './components/wishlist/WishList';
 import FilterMen from './components/filter/FilterMen';
-import SwipeableCard from './components/swipe-right/SwipeableCard';
+import SwipeCard from './components/swipe-right/swipecard';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -31,11 +31,6 @@ function App() {
     fetchData();
   }, []);
 
-  const handleSwipe = (direction, name) => {
-    console.log(`Swiped ${direction} on ${name}`);
-    // Add your logic here to handle the swipe event
-  };
-
   return (
     <Router>
       <div className="App">
@@ -48,16 +43,10 @@ function App() {
           <Route path={'/homeandliving'} component={HomeAndLiving} />
           <Route path={'/swipe-right'} component={() => (
             <div className="swipe-container">
-              {products.map((item, index) => (
-                <SwipeableCard
-                  key={index}
-                  character={{
-                    name: item.title, // Adjust based on actual property name
-                    url: item.image // Adjust based on actual property name
-                  }}
-                  onSwiped={handleSwipe}
-                />
-              ))}
+              <SwipeCard data={products.map(item => ({
+                name: item.title,
+                url: item.image
+              }))} />
             </div>
           )} />
           <Route path={'/login'} component={LogIn} />
