@@ -78,6 +78,13 @@ const Navigation = (props) => {
               SWIPE-RIGHT
             </Button>
 
+            <Button
+              onClick={() => { props.history.push('/your-wardrobe') }}
+              sx={{ my: 2, color: 'black', display: 'block', fontSize: '20px', paddingLeft: '10px', paddingRight: '10px' }}
+            >
+              Your Wardrobe
+            </Button>
+
 
 
             {/* <Button

@@ -13,6 +13,7 @@ import LogIn from './components/login/LogIn';
 import WishList from './components/wishlist/WishList';
 import FilterMen from './components/filter/FilterMen';
 import SwipeCard from './components/swipe-right/swipecard';
+import YourWardrobe from './components/your-wardrobe/YourWardrobe';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -52,6 +53,7 @@ function App() {
           <Route path={'/login'} component={LogIn} />
           <Route path={'/wishlist'} component={WishList} />
           <Route path={'/filtermen'} component={FilterMen} />
+          <Route path={'/your-wardrobe'} component={YourWardrobe} />
         </Switch>
         <Footer />
       </div>
