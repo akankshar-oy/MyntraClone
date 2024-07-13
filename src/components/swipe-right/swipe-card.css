@@ -1,4 +1,6 @@
 /* swipe-card.css */
+
+
 .swipe-card-container {
     position: relative;
     display: flex;
@@ -11,12 +13,13 @@
 }
 
 .swipeable-card {
-    position: absolute;
+    position: absolute; /* Change to absolute to stack cards */
     width: 80vw; /* Increased width */
     max-width: 300px; /* Adjusted max-width */
     height: 350px; /* Increased height */
     margin: 0 auto;
     transition: transform 0.3s ease-out;
+    z-index: 1; /* Lower z-index */
 }
 
 .card {
@@ -62,6 +65,7 @@
     border-radius: 5px;
     color: #ffffff;
     margin: 0 5px; /* Reduced margin */
+    z-index: 2; /* Higher z-index */
 }
 
 .left-button {
@@ -104,10 +108,58 @@
 
 .swipe-buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Center the buttons */
     width: 80vw; /* Adjusted to match the card width */
     max-width: 300px; /* Adjusted to match the card max-width */
-    position: absolute;
-    bottom: 65px; /* Position buttons just below the card */
-    margin-top: 0; /* Set to 0 for closer alignment */
+    position: relative;
+    margin-top: 380px; /* Added margin to position buttons below the stack of cards */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .swipeable-card {
+        width: 90vw;
+        max-width: 280px;
+        height: 320px;
+    }
+
+    .swipe-buttons {
+        width: 90vw;
+        max-width: 280px;
+        margin-top: 340px; /* Adjusted margin for smaller screens */
+    }
+
+    .card h3 {
+        font-size: 12px;
+    }
+
+    .left-button,
+    .right-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .swipeable-card {
+        width: 95vw;
+        max-width: 260px;
+        height: 300px;
+    }
+
+    .swipe-buttons {
+        width: 95vw;
+        max-width: 260px;
+        margin-top: 320px; /* Adjusted margin for smaller screens */
+    }
+
+    .card h3 {
+        font-size: 10px;
+    }
+
+    .left-button,
+    .right-button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
 }
