@@ -34,7 +34,7 @@ const sampleProducts = [
   { id: 12, name: 'Rare Rabbit Shirt', url: Product12, link: 'https://www.myntra.com/shirts/rare+rabbit/rare-rabbit-men-i-love-u-black-custom-slim-fit-shirt/16713130/buy' },
   { id: 13, name: 'Trendyol Mini Skort', url: Product13, link: 'https://www.myntra.com/skirts/trendyol/trendyol-overlap-panel-mini-skort-skirt/22694898/buy' },
   { id: 14, name: 'Nike Air Force 01 Colorblocked', url: Product14, link: 'https://www.myntra.com/casual-shoes/nike/nike-women-air-force-1-07-colorblocked-sneakers/25145256/buy' },
-  // Add more products as needed
+
 ];
 
 const SwipeCard = () => {
