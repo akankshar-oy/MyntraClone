@@ -38,3 +38,12 @@ body {
     font-size: 0.9rem; /* Adjusted the font size to make the text smaller */
     margin-top: 8px; /* Reduced the margin to make it more compact */
 }
+
+h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
