@@ -1,51 +1,59 @@
-/* swipe-card.css */
-
+/* Global Styles */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-}
-
-.swipe-card-container {
+  }
+  
+  /* Color Variables */
+  :root {
+    --light-pink: #ffe4e1;
+    --white: #ffffff;
+    --button-left: #e72744;
+    --button-right: #f13ab1;
+    --button-hover-opacity: 0.8;
+    --button-active-translate: 1px;
+  }
+  
+  /* Swipe Card Container */
+  .swipe-card-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     width: 100vw;
-    background-color: #ffe4e1; /* Lightest pink background */
-    padding: 20px 0; /* Added padding for better spacing */
-    position: relative; /* Ensures relative positioning for absolute elements inside */
-}
-
-.swipeable-card {
+    background-color: var(--light-pink);
+    padding: 20px 0;
+    position: relative;
+  }
+  
+  /* Swipeable Card */
+  .swipeable-card {
     width: 80vw;
-    max-width: 280px; /* Adjusted max-width for better centering */
-    height: 350px; /* Adjusted height */
+    max-width: 280px;
+    height: 350px;
     transition: transform 0.3s ease-out;
-    position: absolute;
-    top: 50%; /* Center the card stack vertically */
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center the card stack */
+    position: relative;
     z-index: 1;
-}
-
-.card {
-    background-color: #ffffff;
+  }
+  
+  .card {
+    background-color: var(--white);
     width: 100%;
     height: 100%;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     overflow: hidden;
-}
-
-.card-content {
+  }
+  
+  .card-content {
     width: 100%;
     height: 100%;
     text-align: justify;
-}
-
-.card-image {
+  }
+  
+  .card-image {
     width: 100%;
     height: 100%;
     background-size: cover;
@@ -54,124 +62,121 @@ body {
     align-items: flex-end;
     justify-content: center;
     padding: 5px;
-    color: #ffffff;
-}
-
-.card h3 {
-    background-color: rgba(0, 0, 0, 0.35); /* More transparent */
+    color: var(--white);
+  }
+  
+  .card h3 {
+    background-color: rgba(0, 0, 0, 0.35);
     padding: 5px;
     border-radius: 5px;
     margin-bottom: 10px;
     font-size: 14px;
-}
-
-.left-button,
-.right-button {
+  }
+  
+  .left-button,
+  .right-button {
     cursor: pointer;
     padding: 10px 20px;
     font-size: 16px;
     border: none;
     border-radius: 5px;
-    color: #ffffff;
-    margin: 0 5px; /* Reduced margin */
+    color: var(--white);
+    margin: 0 5px;
     position: relative;
-}
-
-.left-button {
-    background-color: #e72744;
-}
-
-.right-button {
-    background-color: #f13ab1;
-}
-
-.left-button:hover,
-.right-button:hover {
-    opacity: 0.8;
-}
-
-.left-button:active,
-.right-button:active {
-    transform: translateY(1px);
-}
-
-.swipeable-card.left {
+  }
+  
+  .left-button {
+    background-color: var(--button-left);
+  }
+  
+  .right-button {
+    background-color: var(--button-right);
+  }
+  
+  .left-button:hover,
+  .right-button:hover {
+    opacity: var(--button-hover-opacity);
+  }
+  
+  .left-button:active,
+  .right-button:active {
+    transform: translateY(var(--button-active-translate));
+  }
+  
+  /* Swipe Animations */
+  .swipeable-card.left {
     animation: swipeLeft 0.3s forwards;
-}
-
-.swipeable-card.right {
+  }
+  
+  .swipeable-card.right {
     animation: swipeRight 0.3s forwards;
-}
-
-@keyframes swipeLeft {
+  }
+  
+  @keyframes swipeLeft {
     100% {
-        transform: translateX(-100vw) rotate(-20deg);
+      transform: translateX(-100vw) rotate(-20deg);
     }
-}
-
-@keyframes swipeRight {
+  }
+  
+  @keyframes swipeRight {
     100% {
-        transform: translateX(100vw) rotate(20deg);
+      transform: translateX(100vw) rotate(20deg);
     }
-}
-
-.swipe-buttons {
+  }
+  
+  /* Swipe Buttons */
+  .swipe-buttons {
     display: flex;
     justify-content: space-between;
     width: 80vw;
-    max-width: 280px; /* Adjusted to match the card width */
-    position: absolute;
-    bottom: 20px; /* Ensure buttons are at the bottom of the container */
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
+    max-width: 280px;
+    margin-top: 20px;
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
     .swipeable-card {
-        width: 90vw;
-        max-width: 260px;
-        height: 320px;
-        top: 50%; /* Adjusted top position for smaller screens */
+      width: 90vw;
+      max-width: 260px;
+      height: 320px;
     }
-
+  
     .swipe-buttons {
-        width: 90vw;
-        max-width: 260px;
+      width: 90vw;
+      max-width: 260px;
     }
-
+  
     .card h3 {
-        font-size: 12px;
+      font-size: 12px;
     }
-
+  
     .left-button,
     .right-button {
-        font-size: 14px;
-        padding: 8px 16px;
+      font-size: 14px;
+      padding: 8px 16px;
     }
-}
-
-@media (max-width: 480px) {
+  }
+  
+  @media (max-width: 480px) {
     .swipeable-card {
-        width: 95vw;
-        max-width: 240px;
-        height: 300px;
-        top: 50%; /* Adjusted top position for smaller screens */
+      width: 95vw;
+      max-width: 240px;
+      height: 300px;
     }
-
+  
     .swipe-buttons {
-        width: 95vw;
-        max-width: 240px;
+      width: 95vw;
+      max-width: 240px;
     }
-
+  
     .card h3 {
-        font-size: 10px;
+      font-size: 10px;
     }
-
+  
     .left-button,
     .right-button {
-        font-size: 12px;
-        padding: 6px 12px;
+      font-size: 12px;
+      padding: 6px 12px;
     }
-}
-
+  }
+  
