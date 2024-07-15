@@ -14,8 +14,7 @@ body {
     --button-hover-opacity: 0.8;
     --button-active-translate: 1px;
   }
-  
-  /* Swipe Card Container */
+ 
   .swipe-card-container {
     display: flex;
     flex-direction: column;
@@ -28,7 +27,6 @@ body {
     position: relative;
   }
   
-  /* Swipeable Card */
   .swipeable-card {
     width: 80vw;
     max-width: 280px;
